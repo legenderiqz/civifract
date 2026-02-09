@@ -1,0 +1,211 @@
+<!DOCTYPE html>          
+<html lang="tr">          
+<head>          
+  <meta charset="UTF-8">          
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">          
+  <title>Civifract</title>          
+  <link rel="stylesheet" href="style.css">   
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/367b4f8ab5.js" crossorigin="anonymous"></script>
+</head>          
+<body>          
+  <div id="loading-screen">
+    <div class="loading-box">
+      <span>Civifract</span>
+      <span>Yükleniyor...</span>
+    </div>
+  </div>
+
+  <div id="rotate-warning">        
+    <div class="message">        
+      Lütfen telefonu dik tutun 📱        
+    </div>        
+  </div>     
+        
+  <!-- ÜST BAR -->          
+  <div id="top-bar">
+    <div id="top-header">
+      <div id="date-text"></div>
+      <div id="time-control">
+        <button class="time-btn selected" id="time-stop" data-speed="0">
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <button class="time-btn" data-speed="1">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button class="time-btn" data-speed="2">
+          <i class="fa-solid fa-forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="stats-grid">
+      <div id="authority-bar">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <span id="authority"></span>
+      </div>      
+      <div id="happy-bar">
+        <i class="fa-solid fa-smile"></i> 
+        <span id="happy"></span>
+      </div>      
+      <div id="economy-bar">
+        <i class="fa-solid fa-money-bill-wave"></i> 
+        <span id="economy"></span>
+      </div>      
+      <div id="population-bar">
+        <i class="fa-solid fa-users"></i>
+        <span id="population"></span>
+      </div>      
+      <div id="security-bar">    
+        <div class="locked">
+         🔒 Yenilik 8
+        </div>
+        <i class="fa-solid fa-shield-halved"></i>
+        <span id="security"></span> 
+      </div>      
+
+      <div id="burea-bar">  
+        <div class="locked">
+        🔒 Yenilik 14
+        </div>
+        <i class="fa-solid fa-landmark"></i>
+        <span id="bureaucracy"></span>      
+      </div>
+    </div>
+  </div>
+
+  <!-- ANA ALAN -->     
+  <div id="game-area">   
+    <button id="info-btn">
+      <i class="fa-solid fa-circle-info fa-2x"></i>
+      <span class="notification-dot"></span>
+    </button>
+    <button id="settings-btn">
+      <i class="fa-solid fa-gear"></i>
+    </button>  
+
+    <!-- EVENT PANELİ -->
+    <div id="event-panel">
+      <div id="event-handle" data-sound="swipe.wav"></div>
+      <h3 id="event-title">Aktif bir olay yok...</h3>
+      <div id="event-options">
+        <button class="event-btn hidden">
+          <span class="option-text"></span>
+          <span class="option-effects"></span>
+        </button>
+        <button class="event-btn hidden">
+          <span class="option-text"></span>
+          <span class="option-effects"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="center-panel"></div>
+    <div id="problems-div">
+      <h1 id="problem-title">Sorunlar:</h1>
+      <div id="problem-cards">
+        <div id="problem-card"></div>
+      </div>
+    </div>
+  </div>      
+          
+  <!-- ALT BUTON GRUBU -->        
+  <div id="action-bar">        
+    <button id="innovate-btn">Yenilik Yap</button>        
+    <button id="countries-btn">
+      <div class="btn-locked">
+        🔒 Tur 20
+      </div>
+      <span>Ülkeler</span>
+    </button>        
+  </div>        
+  
+  <div id="replay-menu">
+    <p style="font-weight: bolder; font-size: 20px;">İktidarını Kaybettin</p>
+    <button id="replay-btn">Tekrar Oyna</button>      
+    <p id="statistics"></p>
+  </div>
+  
+  <div id="win-menu">
+    <p style="font-weight: bolder; font-size: 20px;">Oyunu Kazandın!</p>
+    <button id="win-btn">Oynamaya Devam Et</button>      
+    <p id="win-statistics"></p>
+  </div>
+
+  <!-- LOG PANELİ -->          
+  <div id="log-container">
+    <div id="log-title">Haberler:</div>
+    <div id="log-panel"></div>
+  </div>          
+          
+  <!-- YENİLİK MENÜSÜ -->          
+  <div id="innovation-overlay" class="hidden">    
+    <div class="menu">
+      <div id="innovation-title">Yenilik Seç</div>
+      <div class="button-row">
+        <button data-sound="innovation.wav"></button>
+        <button data-sound="innovation.wav"></button>
+        <button data-sound="innovation.wav"></button>
+      </div>
+    </div>  
+  </div>          
+          
+  <!-- AYARLAR MENÜSÜ -->          
+  <div id="settings-overlay" class="hidden">          
+    <div class="set-menu">     
+      <p id="set-title">Ayarlar</p>
+      <button id="set-close">
+        <i class="far fa-times-circle fa-lg" style="color: red;"></i>
+      </button>        
+      <div class="set-btns">        
+        <button id="stats-btn">İstatistikleri Gör</button>
+        <button id="sfx-toggle">Ses Efektleri: Açık</button>
+        <hr>
+        <button id="auto-save">Oto Kayıt: Açık</button>        
+        <button id="set-reset">Oyunu Sıfırla</button>          
+      </div>        
+    </div>          
+  </div>  
+  
+  <!-- İSTATİSTİK MENÜSÜ -->
+  <div id="stats-overlay" class="hidden">
+    <div class="stats-menu">
+      <p id="stats-title">İstatistikler</p>
+      <button id="stats-close">
+        <i class="fas fa-arrow-left" style="color:red;"></i>
+      </button>
+      <div id="stats-text"></div>
+    </div>
+  </div>
+  
+  <!-- İNFO MENÜSÜ -->
+  <div id="info-overlay" class="hidden">          
+    <div class="info-menu">     
+      <p id="info-title">Civifract - Nasıl Oynanır?</p>
+      <button id="info-close">
+        <i class="far fa-times-circle fa-lg" style="color: red;"></i>
+      </button>        
+      <div class="info-p">        
+        <div id="infos" style="overflow-y:auto; max-height:300px;">
+          <div class="info-line"></div>
+        </div>
+      </div>        
+    </div>          
+  </div>         
+  
+    <!-- ÜLKELER MENÜSÜ -->          
+  <div id="countries-overlay" class="hidden">          
+    <div class="countries-menu">   
+      <p id="countries-title">Ülkeler & İlişkiler</p>
+      <button id="countries-close">
+        <i class="far fa-times-circle fa-lg" style="color: red;"></i>
+      </button>        
+      <div class="countries-cards">        
+        <div id="country1">Ülke 1</div>
+      </div>        
+    </div>          
+  </div>  
+          
+  <script type="module" src="./src/main.js"></script>          
+</body>          
+</html>
